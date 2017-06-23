@@ -9,7 +9,10 @@ const appRoutes: Routes = [
     path: 'cars',
     component: CarsComponent,
   },
-
+  {
+    path: '',
+    component: CarsComponent,
+  },
   {
     path: '**',
     component: CarsComponent,

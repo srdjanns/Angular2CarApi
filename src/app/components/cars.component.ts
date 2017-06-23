@@ -3,23 +3,27 @@ import {Car} from "../models/car";
 import {CarsService} from "../services/cars.service";
 
 @Component({
+  moduleId: module.id,
   selector: 'car',
-  templateUrl: './cars.component.html'
+  templateUrl: 'cars.component.html',
+  providers: [CarsService]
 })
 
 export class CarsComponent {
   cars: Car[];
 
 constructor(private CarsService: CarsService) {
-  this.getCars();
+
 }
 
 getCars() {
-  this.CarsService.getCars().subscribe((data) => {
+  console.log("Dje si");
 
+  this.CarsService.getCars().subscribe((data) => {
     this.cars = data;
     }, (err) => {
       console.log("Error while getting Cars");
     });
+    console.log(this.cars);
   }
 }
