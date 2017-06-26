@@ -27,4 +27,7 @@ constructor(private CarsService: CarsService) {
       });
       console.log(this.cars);
   }
+  selectCar(car:Car) {
+    this.selectedCar = car.name;
+  }
 }
