@@ -1,7 +1,19 @@
-
-
-Click:
-<button (click)="getCars()" name="button1">button</button>
-<h3>Cars: </h3>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="cars.component.css">
+</head>
+<body>
+  <div class="container">
+      <div class="grid" *ngFor="let car of cars">
+          <div class="front">
+            <div class="text-box">
+                <h4>{{car.name}}</h4>
+            </div>
+            <img class="img-responsive" src="{{car.image}}" style="width:280px;height:200px;"/>
+          </div>
+      </div>
+  </div>
+</body>
 
 <router-outlet></router-outlet>
+</html>

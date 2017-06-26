@@ -1,29 +1,28 @@
 import {Component} from "@angular/core";
 import {Car} from "../models/car";
+import {Cars} from "../models/cars";
 import {CarsService} from "../services/cars.service";
 
 @Component({
   moduleId: module.id,
   selector: 'car',
   templateUrl: 'cars.component.html',
-  providers: [CarsService]
+  providers: [CarsService],
 })
 
 export class CarsComponent {
   cars: Car[];
 
 constructor(private CarsService: CarsService) {
-
+  this.getCars();
 }
 
-getCars() {
-  console.log("Dje si");
-
-  this.CarsService.getCars().subscribe((data) => {
-    this.cars = data;
-    }, (err) => {
-      console.log("Error while getting Cars");
-    });
-    console.log(this.cars);
+  getCars() {
+    this.CarsService.getCars().subscribe((data) => {
+      this.cars = data.data;
+      }, (err) => {
+        console.log("Error while getting Cars");
+      });
+      console.log(this.cars);
   }
 }
