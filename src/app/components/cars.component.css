@@ -15,12 +15,11 @@
 .flip3D > .front {
   font-family: Helvetica, sans-serif;
   position: relative;
+  transform: perspective(600px) rotateY(0deg);
   background: #0199ad;
   width: 280px;
   height: 200px;
-  margin: 20px;
   border-radius: 7px;
-  margin: 0 auto;
   backface-visibility: hidden;
   -webkit-transition: transform .5s linear 0s;
   -moz-transition: transform .5s linear 0s;
