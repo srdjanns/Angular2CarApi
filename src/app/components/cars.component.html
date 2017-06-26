@@ -1,0 +1,34 @@
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="cars.component.css">
+</head>
+<body>
+  <div class="container">
+    <form id="filter">
+      <input type="text" placeholder="Filter cars by name: " name="search" [(ngModel)]="term" />
+    </form>
+    <div class="grid" *ngFor="let car of cars | filter:term">
+      <div class="flip3D" (click)="selectCar(car)">
+        <div class="back">
+          <div class="text-box-back">
+            <h3>Description: {{car.description}}</h3>
+            <h3>Speed: {{car.speed}} km/h</h3>
+          </div>
+            <img id="image" src="{{car.image}}" style="width:280px;height:200px;"/>
+        </div>
+        <div class="front">
+          <div class="text-box">
+              <h4>{{car.name}}</h4>
+          </div>
+          <img src="{{car.image}}" style="width:280px;height:200px;"/>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <label>Selected car: {{selectedCar}}</label>
+    </div>
+  </div>
+</body>
+
+<router-outlet></router-outlet>
+</html>
