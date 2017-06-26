@@ -3,35 +3,81 @@
   max-width: 960px;
   margin: 0 auto;
 }
+.container label{
+  font-family: Helvetica, sans-serif;
+  padding: 20px;
+}
 .grid  {
   display: inline-block;
   postion:relative;
   margin: 20px 20px;
 }
-.front {
+.flip3D > .front {
   font-family: Helvetica, sans-serif;
   position: relative;
-    background: #1a1c3a;
+  background: #0199ad;
   width: 280px;
   height: 200px;
   margin: 20px;
   border-radius: 7px;
   margin: 0 auto;
+  backface-visibility: hidden;
+  -webkit-transition: transform .5s linear 0s;
+  -moz-transition: transform .5s linear 0s;
+  -o-transition: transform .5s linear 0s;
+  -ms-transition: transform .5s linear 0s;
+  transition: transform .5s linear 0s;
+}
+.flip3D > .back {
+  font-family: Helvetica, sans-serif;
+  position: absolute;
+  transform: perspective(600px) rotateY(180deg);
+  background: #cccccc;
+  width: 280px;
+  height: 200px;
+  border-radius: 7px;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -webkit-transition: transform .5s linear 0s;
+  -moz-transition: transform .5s linear 0s;
+  -o-transition: transform .5s linear 0s;
+  -ms-transition: transform .5s linear 0s;
+  transition: transform .5s linear 0s;
+}
+.flip3D:hover > .front {
+  cursor: pointer;
+  transform: perspective(600px) rotateY(-180deg);
+}
+.flip3D:hover > .back {
+  cursor: pointer;
+  transform: perspective(600px) rotateY(0deg);
+}
+.back > #image{
+  opacity: 0.15;
+  filter: alpha(opacity=50);
 }
 .text-box {
-    position: absolute;
-    height: 100%;
-    text-align:left;
-    margin-top: 80px;
-    color: white;
-    width: 100%;
+  justify-content: flex-end;
+  position: absolute;
+  height: 100%;
+  text-align:left;
+  color: white;
+  width: 100%;
+}
+.text-box-back {
+  position: absolute;
+  height: 100%;
+  color: black;
+  width: 80%;
 }
 .text-box:before {
-   content: '';
-   display: inline-block;
-   height: 100%;
-   vertical-align: middle;
-   al
+  content: '';
+  display: inline-block;
+  height: 110%;
+  vertical-align: bottom;
 }
 #filter{
   width: 100%;
@@ -61,7 +107,13 @@
   -ms-box-sizing: border-box;
 }
 h4 {
-   display: inline-block;
-   font-size: 18px; /*or whatever you want*/
-   color: white;
+  display: inline-block;
+  font-size: 18px; /*or whatever you want*/
+  color: white;
+}
+h3 {
+  padding: 15px;
+  display: inline-grid;
+  font-size: 14px; /*or whatever you want*/
+  color: black;
 }
