@@ -4,14 +4,17 @@
 </head>
 <body>
   <div class="container">
-      <div class="grid" *ngFor="let car of cars">
-          <div class="front">
-            <div class="text-box">
-                <h4>{{car.name}}</h4>
-            </div>
-            <img class="img-responsive" src="{{car.image}}" style="width:280px;height:200px;"/>
+    <form id="filter">
+      <input type="text" placeholder="Filter cars by name: " name="search" [(ngModel)]="term" />
+    </form>
+    <div class="grid" *ngFor="let car of cars | filter:term">
+        <div class="front">
+          <div class="text-box">
+              <h4>{{car.name}}</h4>
           </div>
-      </div>
+          <img class="img-responsive" src="{{car.image}}" style="width:280px;height:200px;"/>
+        </div>
+    </div>
   </div>
 </body>
 

@@ -2,6 +2,7 @@ import {Component} from "@angular/core";
 import {Car} from "../models/car";
 import {Cars} from "../models/cars";
 import {CarsService} from "../services/cars.service";
+import {FilterPipe} from '../filter.pipe';
 
 @Component({
   moduleId: module.id,
@@ -12,6 +13,7 @@ import {CarsService} from "../services/cars.service";
 
 export class CarsComponent {
   cars: Car[];
+  selectedCar: string;
 
 constructor(private CarsService: CarsService) {
   this.getCars();
