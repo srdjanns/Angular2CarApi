@@ -14,6 +14,7 @@ import {FilterPipe} from '../filter.pipe';
 export class CarsComponent {
   cars: Car[];
   selectedCar: string;
+  carsList: Car[] = [];
 
 constructor(private CarsService: CarsService) {
   this.getCars();
@@ -28,6 +29,8 @@ constructor(private CarsService: CarsService) {
       console.log(this.cars);
   }
   selectCar(car:Car) {
-    this.selectedCar = car.name;
+    if (this.carsList.length < 3 && (!this.carsList.includes(car))) {
+      this.carsList.push(car);
+    }
   }
 }

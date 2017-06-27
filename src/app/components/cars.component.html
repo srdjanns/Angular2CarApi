@@ -25,7 +25,12 @@
       </div>
     </div>
     <div class="container">
-      <label>Selected car: {{selectedCar}}</label>
+      Selected cars:
+      <div class="container highway-lane" *ngFor="let car of carsList">
+        <!--<div class="highway-lane"> -->
+          <img class="flipped-image" src="{{car.image}}" style="width:80px;height:40px;"/>
+        <!-- </div> -->
+      </div>
     </div>
   </div>
 </body>
