@@ -102,14 +102,16 @@
   color: #aaa;
   outline: none;
   border-radius: 7px;
-  box-sizing: border-box;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
+  box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
 }
 .flipped-image {
+  height: 100%;
+  width: 70px;
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
@@ -136,6 +138,7 @@ h3 {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
+  height: 50px;
 }
 .highway-lane:first-child {
   -webkit-border-top-left-radius: 7px;
@@ -153,4 +156,37 @@ h3 {
   -moz-border-radius-bottomleft: 7px;
   border-bottom-right-radius: 7px;
   border-bottom-left-radius: 7px;
+}
+
+.race input[type="submit"] {
+    padding: 15px 20px;
+    background: #99ccff;
+    font-family: Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    float: right;
+    margin-top: 10px;
+    outline: none;
+}
+.race input[type="submit"]:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.end-race {
+  float: right;
+}
+.first{
+  background-color: #FFD700;
+}
+.second {
+  background-color: #C0C0C0;
+}
+.third {
+  background-color: #cd7f32;
 }
