@@ -13,7 +13,6 @@ import {FilterPipe} from '../filter.pipe';
 
 export class CarsComponent {
   cars: Car[];
-  selectedCar: string;
   carsList: Car[] = [];
 
   constructor(private CarsService: CarsService) {
@@ -36,17 +35,24 @@ export class CarsComponent {
   }
 
   onSubmit() {
-    var d = document.getElementsByClassName("flipped-image");
+    var d = <NodeListOf<HTMLElement>>document.querySelectorAll(".flipped-image");
     d[0].className += " end-race";
     d[1].className += " end-race";
     d[2].className += " end-race";
-    console.log(d.className);
+
+    var travelTime1 = Math.round(50/this.carsList[0].speed*60);
+    var travelTime2 = Math.round(50/this.carsList[1].speed*60);
+    var travelTime3 = Math.round(50/this.carsList[2].speed*60);
+
+    (d[0] as any).style = "transition: all " + travelTime1 + "s ease-in";
+    (d[1] as any).style = "transition: all " + travelTime2 + "s ease-in";
+    (d[2] as any).style = "transition: all " + travelTime3 + "s ease-in";
 
     var speed1 = this.carsList[0].speed;
     var speed2 = this.carsList[1].speed;
     var speed3 = this.carsList[2].speed;
 
-    if(speed1 >speed2 ){
+    if(speed1 > speed2){
      if(speed1 > speed3 ){
       d[0].className += " first";
       if(speed2 > speed3 ){
@@ -77,6 +83,9 @@ export class CarsComponent {
       d[0].className += " third";
      }
     }
+  }
 
+  isInvalid() : boolean{
+    return this.carsList.length < 3;
   }
 }
