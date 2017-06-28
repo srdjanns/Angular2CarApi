@@ -31,7 +31,7 @@
             <img class="flipped-image" src="{{car.image}}"/>
           </div>
         </div>
-        <input type="submit" value="Start" (click)="onSubmit()">
+        <input type="submit" value="Start" (click)="onSubmit()" [disabled]="isInvalid()">
       </form>
     </div>
   </div>

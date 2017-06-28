@@ -109,16 +109,6 @@
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
 }
-.flipped-image {
-  height: 100%;
-  width: 70px;
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  filter: FlipH;
-  -ms-filter: "FlipH";
-}
 h4 {
   display: inline-block;
   font-size: 18px; /*or whatever you want*/
@@ -132,6 +122,7 @@ h3 {
 }
 
 .highway-lane {
+  position: relative;
   border: 2px solid #000;
   border-bottom: 0 !important;
   box-sizing: border-box;
@@ -178,8 +169,13 @@ h3 {
     cursor: pointer;
 }
 
+.flipped-image {
+  height: 100%;
+  width: 70px;
+}
 .end-race {
-  float: right;
+  margin-left: 100%;
+  transform: translate(-70px, 0);
 }
 .first{
   background-color: #FFD700;
