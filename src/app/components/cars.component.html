@@ -25,7 +25,14 @@
       </div>
     </div>
     <div class="container">
-      <label>Selected car: {{selectedCar}}</label>
+      <form class="race">
+        <div>
+          <div class="highway-lane" *ngFor="let car of carsList">
+            <img class="flipped-image" src="{{car.image}}"/>
+          </div>
+        </div>
+        <input type="submit" value="Start" (click)="onSubmit()" [disabled]="isInvalid()">
+      </form>
     </div>
   </div>
 </body>
